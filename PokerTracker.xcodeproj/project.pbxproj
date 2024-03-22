@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C071C8E72BA9E72D00AC36C7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C8E62BA9E72D00AC36C7 /* DetailView.swift */; };
+		C0285F6D2BAD5A8300D1911D /* DetailViewMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0285F6C2BAD5A8300D1911D /* DetailViewMacOS.swift */; };
+		C071C8E72BA9E72D00AC36C7 /* DetailViewIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071C8E62BA9E72D00AC36C7 /* DetailViewIOS.swift */; };
 		C0D5D2282BA8C39900E2689A /* PokerTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5D2272BA8C39900E2689A /* PokerTrackerApp.swift */; };
 		C0D5D22A2BA8C39900E2689A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5D2292BA8C39900E2689A /* ContentView.swift */; };
 		C0D5D22C2BA8C39B00E2689A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0D5D22B2BA8C39B00E2689A /* Assets.xcassets */; };
@@ -36,7 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C071C8E62BA9E72D00AC36C7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		C0285F6C2BAD5A8300D1911D /* DetailViewMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewMacOS.swift; sourceTree = "<group>"; };
+		C071C8E62BA9E72D00AC36C7 /* DetailViewIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewIOS.swift; sourceTree = "<group>"; };
 		C0D5D2242BA8C39900E2689A /* PokerTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokerTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D5D2272BA8C39900E2689A /* PokerTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerTrackerApp.swift; sourceTree = "<group>"; };
 		C0D5D2292BA8C39900E2689A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,7 +101,8 @@
 		C0D5D2262BA8C39900E2689A /* PokerTracker */ = {
 			isa = PBXGroup;
 			children = (
-				C071C8E62BA9E72D00AC36C7 /* DetailView.swift */,
+				C071C8E62BA9E72D00AC36C7 /* DetailViewIOS.swift */,
+				C0285F6C2BAD5A8300D1911D /* DetailViewMacOS.swift */,
 				C0D5D2522BA8C5D000E2689A /* PlayerData.swift */,
 				C0D5D2272BA8C39900E2689A /* PokerTrackerApp.swift */,
 				C0D5D2292BA8C39900E2689A /* ContentView.swift */,
@@ -265,8 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0285F6D2BAD5A8300D1911D /* DetailViewMacOS.swift in Sources */,
 				C0D5D22A2BA8C39900E2689A /* ContentView.swift in Sources */,
-				C071C8E72BA9E72D00AC36C7 /* DetailView.swift in Sources */,
+				C071C8E72BA9E72D00AC36C7 /* DetailViewIOS.swift in Sources */,
 				C0D5D2532BA8C5D000E2689A /* PlayerData.swift in Sources */,
 				C0D5D2282BA8C39900E2689A /* PokerTrackerApp.swift in Sources */,
 			);
@@ -552,7 +556,7 @@
 				DEVELOPMENT_TEAM = 9TCTTGQXSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reece.PokerTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -574,7 +578,7 @@
 				DEVELOPMENT_TEAM = 9TCTTGQXSG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.reece.PokerTrackerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

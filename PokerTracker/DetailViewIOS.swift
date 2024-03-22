@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  DetailViewIOS.swift
 //  PokerTracker
 //
 //  Created by Reece on 3/19/24.
@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct DetailViewIOS: View {
     let player: PlayerData
+    
+    let columns: [GridItem] = [
+        GridItem(),
+        GridItem()
+    ]
     
     var body: some View {
         ZStack {
@@ -21,63 +26,38 @@ struct DetailView: View {
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 
                 VStack(alignment: .leading) {
-                    Text("Name:")
-                        .padding(.top, 10)
-                        .fontWeight(.semibold)
-                    Text(player.name)
-                        .padding(.leading, 10)
-                        .padding(.bottom, 5)
+                        Text("Name:")
+                            .padding(.top, 10)
+                            .fontWeight(.semibold)
+                        Text(player.name)
+                            .padding(.leading, 10)
+                            .padding(.bottom, 5)
+                        
+                        Text("Balance Owed:")
+                            .fontWeight(.semibold)
+                        Text(player.balance)
+                            .padding(.leading, 10)
+                            .padding(.bottom, 5)
                     
-                    Text("Balance Owed:")
-                        .fontWeight(.semibold)
-                    Text(player.balance)
-                        .padding(.leading, 10)
-                        .padding(.bottom, 5)
-                    
-                    Text("Transaction History:")
-                        .fontWeight(.semibold)
+                        Text("UUID:")
+                            .fontWeight(.semibold)
+                        Text(player.id)
+                            .padding(.leading, 10)
+                            .padding(.bottom, 5)
+                        
+                        Text("Transaction History:")
+                            .fontWeight(.semibold)
                     
                     ScrollView {
-                        LazyVStack(spacing: 5) {
-                            ForEach(player.amountHistory.indices, id: \.self) { index in
-                                HStack {
-                                    #if os(iOS)
-                                        Spacer().frame(width: 10)
-                                        Text(player.amountHistory[index])
-                                        Spacer()
-                                        Text(player.dateHistory[index])
-                                    Spacer().frame(width: geometry.size.width * 0.2)
-                                    #else
-                                        Spacer().frame(width: 10)
-                                        Text(player.amountHistory[index])
-                                        Spacer()
-                                        Text(player.dateHistory[index])
-                                        Spacer().frame(width: geometry.size.width * 0.7)
-                                    #endif
+                        VStack {
+                            LazyVGrid(columns: columns, alignment: .leading, spacing: 15) {
+                                ForEach(player.amountHistory.indices, id: \.self) { index in
+                                    Text(player.amountHistory[index])
+                                    Text(player.dateHistory[index])
                                 }
-                                .padding([.top, .bottom], 5)
                             }
                         }
                     }
-                    
-//                    VStack {
-//                        List(player.amountHistory.indices, id: \.self) { index in
-//                                                HStack {
-//                                                    Text(player.amountHistory[index])
-//                                                    Spacer()
-//                                                    Text(player.dateHistory[index])
-//                                                    Spacer()
-//                                                }
-//                                                .padding([.top, .bottom], 5)
-//                        }
-//                        .scrollContentBackground(.hidden)
-//                    }
-                    
-                    Text("UUID:")
-                        .fontWeight(.semibold)
-                    Text(player.id)
-                        .padding(.leading, 10)
-                        .padding(.bottom, 5)
                     
                     Spacer()
                     
@@ -146,7 +126,7 @@ struct DetailView: View {
                 .toolbar {
 //                    ToolbarItem(placement: .principal) {
                         Text("Additional Details")
-//                            .font(.headline)
+                            .font(.headline)
                             .foregroundColor(Color.blue)
 //                    }
                 }
@@ -156,14 +136,8 @@ struct DetailView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 #Preview {
-    DetailView(player: PlayerData(name: "John", balance: "0.00"))
+    DetailViewIOS(player: PlayerData(name: "John", balance: "0.00"))
 }
 
 

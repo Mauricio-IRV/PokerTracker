@@ -258,7 +258,6 @@ struct ContentView: View {
             }
         }
         .navigationTitle("Poker Tracker")
-        .foregroundColor(.blue)
 
     }
     

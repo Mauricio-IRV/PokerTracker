@@ -46,6 +46,7 @@ struct ContentView: View {
                         }
                         label: {
                             Label("New Player", systemImage: "plus")
+                                .foregroundColor(.blue)
                         }
                         .alert("Add New Player", isPresented: $presentAddPlayer, actions: {
                             TextField("Name", text: $username)
@@ -60,17 +61,15 @@ struct ContentView: View {
                             })
                         })
                         
-                        /*Menu() {
-                            Button("Clear Storage") {
-                                clearStorage()
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis")
-                        }*/
+//                        Menu() {
+//                            Button("Clear Storage") {
+//                                clearStorage()
+//                            }
+//                        } label: {
+//                            Image(systemName: "ellipsis")
+//                        }
                     }
 
-                    // IF IOS   : List(players) { player in
-                    // IF MACOS : List(players, id: \.id, selection: $selection) { player in
                     List(players, id: \.id, selection: $selection) { player in
                         HStack(spacing: 0) {
                             Text("    ")
@@ -88,10 +87,10 @@ struct ContentView: View {
                         }
                       .listRowInsets(.init(top: 15, leading: 0, bottom: 15, trailing: 15))
                         .foregroundColor(Color.white)
-                        .listRowBackground(
-                            Color(red: 0, green: 102 / 255, blue: 0)
-                                .opacity(selection.contains(player.id) ? 0.6 : 0) // Change opacity when selected
-                        )
+//                        .listRowBackground(
+//                            Color(red: 0, green: 102 / 255, blue: 0)
+//                                .opacity(selection.contains(player.id) ? 0.6 : 0) // Change opacity when selected
+//                        )
                         
                         .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
                             Button("Delete") {
@@ -169,11 +168,7 @@ struct ContentView: View {
                         })
                     })
                     .navigationDestination(for: PlayerData.self) { player in
-                        #if os(iOS)
-                            DetailViewIOS(player: player)
-                        #else
-                            DetailViewMacOS(player: player)
-                        #endif
+                        DetailView(player: player)
                     }
                     
                     HStack(spacing: 20) {
@@ -263,6 +258,7 @@ struct ContentView: View {
             }
         }
         .navigationTitle("Poker Tracker")
+        .foregroundColor(.blue)
 
     }
     
